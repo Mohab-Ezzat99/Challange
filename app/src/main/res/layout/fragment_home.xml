@@ -9,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.MainActivity">
+        android:layout_height="match_parent">
 
         <Button
             android:id="@+id/btnSwitch"
@@ -54,22 +53,61 @@
             app:layout_constraintStart_toEndOf="@+id/btnSwitch"
             app:layout_constraintTop_toTopOf="@+id/btnSwitch" />
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/in_linRight"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="@+id/tvRightType"
+            app:layout_constraintStart_toStartOf="@+id/tvRightType"
+            app:layout_constraintTop_toBottomOf="@+id/tvRightType">
+
+            <include
+                android:id="@+id/in_spinnerRight"
+                layout="@layout/layout_default_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/in_linLeft"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="@+id/tvLeftType"
+            app:layout_constraintStart_toStartOf="@+id/tvLeftType"
+            app:layout_constraintTop_toBottomOf="@+id/tvRightType">
+
+            <include
+                android:id="@+id/in_spinnerLeft"
+                layout="@layout/layout_default_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <EditText
             android:id="@+id/tvRightValue"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_32sdp"
+            android:background="@android:color/darker_gray"
+            android:gravity="center"
+            android:text="1"
             app:layout_constraintEnd_toStartOf="@+id/btnSwitch"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvRightType" />
+            app:layout_constraintTop_toBottomOf="@+id/in_linRight" />
 
-        <TextView
+        <EditText
             android:id="@+id/tvLeftValue"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_32sdp"
+            android:background="@android:color/darker_gray"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnSwitch"
-            app:layout_constraintTop_toBottomOf="@+id/tvLeftType" />
+            app:layout_constraintTop_toBottomOf="@+id/in_linLeft" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,6 +6,9 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val api: RetrofitApi) {
 
+    suspend fun getSymbols() =
+        NetworkHandling.toResultFlow { api.getSymbols() }
+
     suspend fun latest() =
         NetworkHandling.toResultFlow { api.latest() }
 
