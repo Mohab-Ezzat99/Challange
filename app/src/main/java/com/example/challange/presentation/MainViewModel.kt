@@ -19,10 +19,10 @@ class MainViewModel @Inject constructor(
     private val _convertResponse = MutableStateFlow<Double?>(null)
     val convertResponse: StateFlow<Double?> = _convertResponse
 
-    fun convert(from: String, to: String, amount: Int) {
+    fun latest() {
         viewModelScope.launch {
-            mainRepository.convert(from, to, amount).collect {
-                _convertResponse.value = it.data?.result
+            mainRepository.latest().collect {
+                _convertResponse.value = it.data?.rates?.AED
             }
         }
     }

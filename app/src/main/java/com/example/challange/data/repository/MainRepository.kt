@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val api: RetrofitApi) {
 
-    suspend fun convert(from: String, to: String, amount: Int) =
-        NetworkHandling.toResultFlow { api.convert(from,to,amount) }
+    suspend fun latest() =
+        NetworkHandling.toResultFlow { api.latest() }
 
 }
